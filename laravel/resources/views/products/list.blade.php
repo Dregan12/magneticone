@@ -16,10 +16,7 @@
                     </p>
                 </div>
             </div>
-
         @else
-
-
             <div class="product">
                 <p><img src="{{$product->img_url}}"></p>
                 <a href="/products/{{$product->id}}">{{$product->title}}</a>

@@ -13,19 +13,15 @@ class ParserDomCrawler extends Controller
 {
     public function index()
     {
-
         $ch = curl_init('http://comfy.ua/brush-cutters/');
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.224 Safari/534.10');
 
-
         $html = curl_exec($ch);
-
         $dom = new Crawler($html);
         $crawler = $dom->filter('.products-tiles__cell');
-
 
         foreach ($crawler as $domElement) {
 
@@ -44,7 +40,7 @@ class ParserDomCrawler extends Controller
             echo "<br>";
 
             $product->title = $productTitle;
-            $product->description = $productDiscription;
+            $product->description = "55";
             $product->img_url = $productImgUrl;
             $product->save();
         }

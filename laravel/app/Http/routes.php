@@ -10,9 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/parse', 'ParserController@index');
 
 Route::get('/parser', 'ParserDomCrawler@index');
+
+Route::get('/', 'ProductController@startPage');
 
 Route::get('/products', 'ProductController@index');
 

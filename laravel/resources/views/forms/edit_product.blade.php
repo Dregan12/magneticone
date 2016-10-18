@@ -19,10 +19,10 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <p>Title</p>
             <textarea name="title" class="form-control"></textarea>
-            <p>Description</p>
+            <p>Price</p>
             <textarea name="description" class="form-control"></textarea>
-            <p class="help-block">Add img for product</p>
-            <input type="file" id="exampleInputFile" name="img_url">
+            <p>Add image URL</p>
+            <textarea class="form-control" type="file" id="img_url" name="img_url">Add image URL</textarea>
 
 
         </div>

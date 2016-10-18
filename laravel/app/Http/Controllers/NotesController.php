@@ -12,12 +12,8 @@ class NotesController extends Controller
 {
     public function store(Request $request, Product $product)
     {
-
-
         $note = new Note();
-
         $note->body = $request->body;
-
         $product->notes()->save($note);
 
         return back();

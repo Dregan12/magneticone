@@ -13,7 +13,6 @@ class HomeController extends Controller
     {
       $products = Product::All();
 
-
         return view('products.list',
             ['products' => $products]);
     }

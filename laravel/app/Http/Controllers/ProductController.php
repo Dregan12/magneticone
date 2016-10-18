@@ -11,11 +11,17 @@ class ProductController extends Controller
 {
     public function index()
     {
-
         $products = Product::withTrashed()->paginate(5);
 
-        return view('products.list',
-            ['products' => $products]);
+        return view(
+            'products.list',
+            ['products' => $products]
+        );
+    }
+
+    public function startPage()
+    {
+        return view('start');
     }
 
 
@@ -32,10 +38,12 @@ class ProductController extends Controller
 
     public function save(Request $request, Product $product)
     {
-        $this->validate($request, [
-            'title' => 'required|unique:products',
+        $this->validate(
+            $request, [
+            'title'       => 'required|unique:products',
             'description' => 'required'
-        ]);
+        ]
+        );
 
         $product->title = $request->title;
         $product->description = $request->description;
@@ -53,10 +61,12 @@ class ProductController extends Controller
 
     public function saveEdit(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|unique:products',
+        $this->validate(
+            $request, [
+            'title'       => 'required|unique:products',
             'description' => 'required'
-        ]);
+        ]
+        );
 
         $product = Product::find($request->get('product_id'));
 
@@ -72,16 +82,14 @@ class ProductController extends Controller
     public function delete($productId)
     {
         Product::destroy($productId);
+
         return response()->json(['success' => true]);
     }
 
 
     public function restore($productId)
     {
-
-
         Product::withTrashed()->where('id', $productId)->restore();
-
 
         return view('forms.success');
 

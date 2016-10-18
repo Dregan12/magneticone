@@ -18,17 +18,17 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <p>Title</p>
             <textarea name="title" class="form-control">Title</textarea>
-            <p>Description</p>
+            <p>Price</p>
             <textarea name="description" class="form-control">Description</textarea>
-            <p class="help-block">Add img for product</p>
-            <input class="form-control" type="file" id="img_url" name="img_url">
+            <p>Add image URL</p>
+            <textarea class="form-control" type="file" id="img_url" name="img_url">Add image URL</textarea>
 
 
         </div>
 
         <div class="form-group">
 
-            <button type="submit" class="btn btn-primary">Add Note</button>
+            <button type="submit" class="btn btn-primary">Add Product</button>
 
         </div>
 
